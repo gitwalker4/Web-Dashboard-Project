@@ -34,7 +34,7 @@
     
       <div class="profile-info">
         <img class="profile-pic" src="images/member-1.jpg" alt="profile pic of the user">
-        <h3>Star Lord</h3>
+        <h3>Tommy Chipmunk</h3>
       </div>
   
     </div>  
@@ -73,7 +73,7 @@
 
     <div class="alert">
       <p><strong>Alert:</strong> You have unread messages</p>
-      <button>x</button>
+      <button class="btn-alert">x</button>
     </div>
 
     <!-- Traffic Section -->
@@ -83,7 +83,7 @@
       <div class="traffic-div">
         <h3>Traffic</h3>
         <ul class="traffic-list">
-          <li class="traffic-list-nav">Hourly</li>
+          <li class="traffic-list-nav live">Hourly</li>
           <li class="traffic-list-nav">Daily</li>
           <li class="traffic-list-nav">Weekly</li>
           <li class="traffic-list-nav">Monthly</li>
@@ -120,7 +120,7 @@
       </div>
 
       <div class="graph-container-half">
-        <canvas class="mobile-graph"></canvas>
+        <canvas id="mobile-graph"></canvas>
       </div>
 
     </section>
@@ -287,19 +287,21 @@
       </div>
 
       <div class="toggles">
+        <p>Send Email Notifications</p>
         <label class="switch-light switch-ios" onclick="">
           <input type="checkbox" id="email">
-          <strong>Send Email Notifications</strong>
-          <span class="btn-span">
+          <span>
             <span>OFF</span>
             <span>ON</span>
             <a></a>
           </span>
         </label>
-
+      </div>  
+      
+      <div class="toggles">
+        <p>Set Profile to Public</p>
         <label class="switch-light switch-ios" onclick="">
           <input type="checkbox" id="public">
-          <strong>Set Profile to Public</strong>
           <span>
             <span>OFF</span>
             <span>ON</span>
@@ -310,6 +312,7 @@
 
       <div class="timezone">
         <select name="timezone">
+          <option value="" disabled selected>Select Timezone</option>
           <option value="est">Eastern Standard Time</option>
           <option value="cst">Central Standard Time</option>
           <option value="mst">Mountain Standard Time</option>
@@ -320,13 +323,16 @@
       </div>
 
       <div class="btns-last">
-        <button class="save">Save</button>
-        <button class="cancel">Cancel</button>
+        <button class="save">SAVE</button>
+        <button class="cancel">CANCEL</button>
       </div>
 
     </section>
 
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>

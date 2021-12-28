@@ -63,9 +63,28 @@ header {
   margin-left: 10px;
 }
 
+@keyframes bell {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-10deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
 .bell-icon{
   height: 25px;
   width: 25px;
+}
+
+.bell-icon:hover {
+  animation: bell 1s ease-in-out backwards;
 }
 
 .bell-dot {
@@ -77,7 +96,36 @@ header {
 }
 
 .bell-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.notifications {
   display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  border: 1px solid var(--borderMain);
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+  z-index: 1;
+}
+
+.notifications p {
+  color: var(--background);
+  padding: 5px 15px;
+  font-size: 15px;
+  display: block;
+}
+
+.notifications p:first-of-type {
+  border-bottom: 1px solid var(--borderMain);
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.show-drop {
+  display: block;
 }
 
 .profile-info {
@@ -169,9 +217,28 @@ header {
   padding-bottom: 2px;
   border: none;
   background: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
-/*--- TRAFFIC STYLES ---*/
+/*--- CHART STYLES ---*/
+
+.traffic-list-nav {
+  padding: 7px;
+  cursor: pointer;
+}
+
+.live {
+  background-color: var(--background);
+  border-radius: 20px;
+  color: white;
+}
+
+#traffic-graph,
+#daily-graph,
+#mobile-graph {
+  padding: 20px;
+}
+
 
 .traffic-list {
   list-style: none;
@@ -181,8 +248,7 @@ header {
   justify-content: space-around;
 }
 
-/*--- DAILY TRAFFIC STYLES ---*/
-/*--- MOBILE USERS STYLES ---*/
+
 /*--- SOCIAL STATS STYLES ---*/
 
 .social-icon {
@@ -272,7 +338,7 @@ header {
   color: var(--background);
 }
 
-/*--- MESSAGE USER STYLES ---*/
+/*--- MESSAGE USER STYLES / SETTINGS STYLES ---*/
 
 form {
   padding-right: 10px;
@@ -283,7 +349,10 @@ form {
 
 #text,
 #textarea,
-#send {
+#send,
+select,
+.save,
+.cancel {
   border: 1.5px solid var(--borderMain);
   border-radius: 5px;
   margin-bottom: 15px;
@@ -303,7 +372,22 @@ form {
   font-family: 'Roboto', sans-serif;
 }
 
-#send {
+#send,
+.save {
+  background-color: var(--background);
+}
+
+#text,
+#send,
+select,
+.save,
+.cancel {
+  height: 45px;
+}
+
+#send,
+.save,
+.cancel {
   padding: 10px 0px;
   background-color: var(--background);
   box-shadow: var(--boxShadow);
@@ -311,10 +395,54 @@ form {
   letter-spacing: 1px;
   font-family: 'Roboto', sans-serif;
 }
-/*--- SETTINGS STYLES ---*/
 
 .settings {
   padding-left: 10px;
   padding-right: 10px;
 }
 
+select {
+  width: 100%;
+  height: 45px;
+  background-color: var(--background2);
+  margin-top: 15px;
+  padding-left: 5px;
+}  
+
+select option:selected {
+  color: lightgray;
+}
+
+.toggles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.toggles p {
+  padding-bottom: 2px;
+  font-size: 15px;
+}
+
+.switch-light {
+  width: 100px;
+  border: var(--borderMain) 1px solid;
+  border-radius: 25px;
+  box-shadow: var(--boxShadow);
+}
+
+.btns-last {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btns-last button {
+  width: 47%;
+}
+
+.cancel {
+  background-color: rgb(150, 150, 150);
+}
