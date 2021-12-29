@@ -395,7 +395,7 @@ select,
 }
 
 #textarea {
-  min-height: 120px;
+  min-height: 130px;
 }
 
 ::placeholder {
@@ -561,5 +561,27 @@ select option:selected {
 
   .toggles {
     max-width: 50%;
+  }
+}
+
+
+@media screen and ( min-width: 1024px ) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "dashboard dashboard"
+      "alert alert"
+      "traffic traffic"
+      "daily mobile"
+      "social social"
+      "members recent"
+      "messages settings"
+    ;
+  }
+
+  .members,
+  .messages {
+    border-right: var(--borderMain) 1px solid;
   }
 }
