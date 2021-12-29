@@ -39,6 +39,7 @@ h3 {
 
 main {
   grid-area: main;
+  background-color: rgba(224, 237, 255, 0.253);
 }
 
 /*--- HEADER STYLES ---*/
@@ -171,8 +172,8 @@ header {
 .dashboard {
   height: 50px;
   width: 100%;
-  background-color: rgba(224, 237, 255, 0.233);
   display: flex;
+  grid-area: dashboard;
 }
 
 .dash-tab {
@@ -210,6 +211,7 @@ header {
   flex-direction: row; 
   justify-content: space-between;
   align-items: center;
+  grid-area: alert;
 }
 
 .alert button {
@@ -221,6 +223,18 @@ header {
 }
 
 /*--- CHART STYLES ---*/
+
+.traffic {
+  grid-area: traffic;
+}
+
+.daily {
+  grid-area: daily;
+}
+
+.mobile {
+  grid-area: mobile;
+}
 
 .traffic-list-nav {
   padding: 7px;
@@ -250,6 +264,10 @@ header {
 
 
 /*--- SOCIAL STATS STYLES ---*/
+
+.social {
+  grid-area: social;
+}
 
 .social-icon {
   height: 60px;
@@ -299,6 +317,14 @@ header {
 
 /*--- NEW MEMBERS STYLES & RECENT ACTIVITY STYLES ---*/
 
+.members {
+  grid-area: members;
+}
+
+.recent {
+  grid-area: recent;
+}
+
 .new-member,
 .recent-post {
   font-weight: 400;
@@ -334,11 +360,15 @@ header {
   width: 75px;
 }
 
-.new-member p:nth-child(3) {
+.new-member p:nth-child(2) {
   color: var(--background);
 }
 
 /*--- MESSAGE USER STYLES / SETTINGS STYLES ---*/
+
+.messages {
+  grid-area: messages;
+}
 
 form {
   padding-right: 10px;
@@ -399,6 +429,7 @@ select,
 .settings {
   padding-left: 10px;
   padding-right: 10px;
+  grid-area: settings;
 }
 
 select {
@@ -445,4 +476,90 @@ select option:selected {
 
 .cancel {
   background-color: rgb(150, 150, 150);
+}
+
+@media screen and ( min-width: 768px ) {
+  .grid-container {
+    grid-template-columns: 60px 1fr;
+    grid-template-areas: 
+      "header header"
+      "nav main"
+    ;
+  }
+
+  header {
+    justify-content: space-between;
+    padding: 0px 20px;
+  }
+
+  .main-nav {
+    height: 100%;
+    align-items: flex-start;
+    text-align: center;
+    padding-left: 15px;
+  }
+
+  .nav-links img {
+    margin: 15px 0px;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "dashboard dashboard"
+      "alert alert"
+      "traffic traffic"
+      "daily mobile"
+      "social social"
+      "members members"
+      "recent recent"
+      "messages messages"
+      "settings settings"
+    ;
+  }
+
+  .dash-tab {
+    text-align: left;
+  }
+
+  .daily {
+    border-right: var(--borderMain) 1px solid;
+  }
+
+  #traffic-graph,
+  #daily-graph,
+  #mobile-graph {
+    padding-left: 10px;
+  }
+
+  .social-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .social-back {
+    width: 32%;
+  }
+
+  .social-back:first-of-type {
+    margin-left: 0px;
+  }
+
+  .social-back:last-of-type {
+    margin-right: 0px;
+  }
+
+  .new-member,
+  .recent-post {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .toggles {
+    max-width: 50%;
+  }
 }
