@@ -65,17 +65,17 @@ header {
 }
 
 @keyframes bell {
-  0% {
-    transform: scale(1) rotate(0deg);
+  20% {
+    transform: rotate(20deg);
   }
-  25% {
-    transform: scale(1.1) rotate(-10deg);
+  40% {
+    transform: rotate(-20deg);
   }
-  50% {
-    transform: scale(0.8) rotate(-5deg);
+  60% {
+    transform: rotate(20deg);
   }
-  75% {
-    transform: scale(1.1) rotate(5deg);
+  80% {
+    transform: rotate(-20deg);
   }
 }
 
@@ -224,6 +224,10 @@ header {
 
 /*--- CHART STYLES ---*/
 
+canvas {
+  max-width: 100%;
+}
+
 .traffic {
   grid-area: traffic;
 }
@@ -242,7 +246,7 @@ header {
 }
 
 .live {
-  background-color: var(--background);
+  background-color: rgb(33, 192, 33);
   border-radius: 20px;
   color: white;
 }
@@ -271,7 +275,7 @@ header {
 
 .social-icon {
   height: 60px;
-  width: 60px;
+  min-width: 60px;
   padding: 15px;
   fill: white;
   background-color: var(--background);
@@ -309,7 +313,8 @@ header {
 }
 
 .social-numbers{
-  font-size: 40px;
+  font-size: 2.2em;
+  min-width: 100%;
   margin-top: 0;
   margin-bottom: 15px;
   color: rgb(141, 141, 141);
@@ -360,8 +365,12 @@ header {
   width: 75px;
 }
 
-.new-member p:nth-child(2) {
+.member-info p:nth-child(2) {
   color: var(--background);
+}
+
+.arrow {
+  display: none;
 }
 
 /*--- MESSAGE USER STYLES / SETTINGS STYLES ---*/
@@ -388,14 +397,34 @@ select,
   margin-bottom: 15px;
 }
 
+.auto-result ul li{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+ 
+}
+.auto-result ul{
+    margin:0;
+    padding:5px;
+  background-color:gray;
+  width:150px;
+   color:white;
+}
+
 #text,
 #textarea {
   background-color: var(--background2);
   padding: 10px 0 10px 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+input:active,
+textarea:active {
+  border: var(--background) 1px dotted;
 }
 
 #textarea {
-  min-height: 130px;
+  height: 130px;
 }
 
 ::placeholder {
@@ -480,7 +509,7 @@ select option:selected {
 
 @media screen and ( min-width: 768px ) {
   .grid-container {
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 70px 1fr;
     grid-template-areas: 
       "header header"
       "nav main"
@@ -496,11 +525,12 @@ select option:selected {
     height: 100%;
     align-items: flex-start;
     text-align: center;
-    padding-left: 15px;
+    padding-left: 18px;
   }
 
   .nav-links img {
     margin: 15px 0px;
+    padding: 2px;
   }
 
   main {
@@ -521,6 +551,16 @@ select option:selected {
 
   .dash-tab {
     text-align: left;
+  }
+
+  .traffic-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .traffic-list-nav {
+    margin: 5px;
   }
 
   .daily {
@@ -551,12 +591,40 @@ select option:selected {
     margin-right: 0px;
   }
 
+  .social-numbers {
+    max-width: 100%;
+  }
+
   .new-member,
   .recent-post {
     display: flex;
     justify-content: space-between;
-    text-align: left;
+    align-items: center;
     padding-left: 10px;
+  }
+
+  .member-info,
+  .recent-info {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .member-text,
+  .recent-text {
+    padding-left: 10px;
+    padding-top: 8px;
+  }
+
+  .recent-text p:first-of-type {
+    margin-bottom: 2px;
+  }
+
+  .arrow {
+    display: inline;
+    margin-top: 0px;
+    color: var(--background);
+    font-size: 20px;
   }
 
   .toggles {
@@ -583,5 +651,21 @@ select option:selected {
   .members,
   .messages {
     border-right: var(--borderMain) 1px solid;
+  }
+
+  #send {
+    margin-top: 15px;
+  }
+
+  #textarea {
+    margin-bottom: 0px;
+  }
+
+  .toggles {
+    max-width: 60%;
+  }
+
+  label {
+    max-width: 85px;
   }
 }

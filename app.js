@@ -170,7 +170,7 @@ const mobileData = {
     backgroundColor: [
       'rgba(106, 95, 202, 0.863)',
       'turquoise',
-      'lightgreen'
+      'rgb(33, 192, 33)'
     ],
     borderWidth: 1
   }]
@@ -180,10 +180,11 @@ const mobileOptions = {
   aspectRatio: 2,
   plugins: {
     legend: {
-        position: 'left',
+        position: 'right',
         labels: {
-            boxWidth: 25,
-            boxHeight: 25
+            boxWidth: 20,
+            boxHeight: 15,
+            fontStyle: 'bold'
         }
     }
   }
@@ -196,3 +197,30 @@ const mobileDoughChart = new Chart( mobileChart, {
 });
 
 // Message User 
+const send = document.querySelector('#send');
+const user = document.querySelector('#text');
+const message = document.querySelector('#textarea');
+
+send.addEventListener('click', () => {
+  if ( user.value === '' && message.value === '' ) {
+    window.alert('Please fill out both the user and message fields.');
+  } else if ( user.value === '' ){
+    window.alert('Please make sure to fill out the user field.');
+  } else if ( message.value === '' ){
+    window.alert('Please make sure to fill out the message field.');
+  } else {
+    window.alert(`Your message has been successfully sent to ${user.value}`);
+  }
+});
+
+// Autocomplete function
+const nameList = [
+  'Victoria Chambers',
+  'Dale Byrd',
+  'Dawn Wood',
+  'Dan Oliver',
+  'Pat Riley',
+  'Cooper Kupp',
+  'Travis Kelce'
+]
+

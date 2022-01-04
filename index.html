@@ -72,7 +72,7 @@
     </div>
 
     <div class="alert">
-      <p><strong>Alert:</strong> You have unread messages</p>
+      <p><strong>Alert:</strong> There is an unknown entity in your area!</p>
       <button class="btn-alert">x</button>
     </div>
 
@@ -199,47 +199,63 @@
       </div>
       
       <div class="new-member">
-        <img class="member-pic" src="images/member-1.jpg" alt="new member photo">
-        
-        <div class="member-text">
-          <p>Victoria Chambers</p>
-          <p>victoria.chambers80@example.com</p>
+
+        <div class="member-info">
+          <img class="member-pic" src="images/member-1.jpg" alt="new member photo">
+          
+          <div class="member-text">
+            <p>Victoria Chambers</p>
+            <p>victoria.chambers80@example.com</p>
+          </div>
         </div>
         
         <p>10/15/20</p>
+
       </div>
 
       <div class="new-member">
-        <img class="member-pic" src="images/member-2.jpg" alt="new member photo">
-        
-        <div class="member-text">
-          <p>Dale Byrd</p>
-          <p>dale.byrd52@example.com</p>
-        </div>  
+
+        <div class="member-info">
+          <img class="member-pic" src="images/member-2.jpg" alt="new member photo">
+          
+          <div class="member-text">
+            <p>Dale Byrd</p>
+            <p>dale.byrd52@example.com</p>
+          </div>  
+        </div>
 
         <p>10/15/20</p>
+
       </div>
 
       <div class="new-member">
-        <img class="member-pic" src="images/member-3.jpg" alt="new member photo">
-       
-        <div class="member-text">
-          <p>Dawn Wood</p>
-          <p>dawn.wood16@example.com</p>
+
+        <div class="member-info">
+          <img class="member-pic" src="images/member-3.jpg" alt="new member photo">
+        
+          <div class="member-text">
+            <p>Dawn Wood</p>
+            <p>dawn.wood16@example.com</p>
+          </div>
         </div>
         
         <p>10/15/20</p>
+
       </div>
 
       <div class="new-member">
-        <img class="member-pic" src="images/member-4.jpg" alt="new member photo">
-        
-        <div class="member-text">
-          <p>Dan Oliver</p>
-          <p>dan.oliver82@example.com</p>
+
+        <div class="member-info">
+          <img class="member-pic" src="images/member-4.jpg" alt="new member photo">
+          
+          <div class="member-text">
+            <p>Dan Oliver</p>
+            <p>dan.oliver82@example.com</p>
+          </div>
         </div>
         
         <p>10/15/20</p>
+
       </div>
 
     </section>
@@ -253,42 +269,62 @@
       </div>
 
       <div class="recent-post">
-        <img class="member-pic" src="images/member-1.jpg" alt="new member photo">
-         
-        <div class="recent-text">
-          <p>Victoria Chambers commented on <strong>WebApp's SEO Tips</strong></p>
-          <p>4 hours ago</p>
+
+        <div class="recent-info">
+          <img class="member-pic" src="images/member-1.jpg" alt="new member photo">
+          
+          <div class="recent-text">
+            <p>Victoria Chambers commented on <strong>WebApp's SEO Tips</strong></p>
+            <p>4 hours ago</p>
+          </div>
         </div>
+
+        <p class="arrow">&gt;</p>
 
       </div>
 
       <div class="recent-post">
-        <img class="member-pic" src="images/member-2.jpg" alt="new member photo">
-        
-        <div class="recent-text">
-          <p>Dale Byrd liked the post <strong>Facebook's Changes for 2021</strong></p>
-          <p>5 hours ago</p>
+
+        <div class="recent-info">
+          <img class="member-pic" src="images/member-2.jpg" alt="new member photo">
+          
+          <div class="recent-text">
+            <p>Dale Byrd liked the post <strong>Facebook's Changes for 2021</strong></p>
+            <p>5 hours ago</p>
+          </div>
         </div>
+
+        <p class="arrow">&gt;</p>
       
       </div>
 
       <div class="recent-post">
-        <img class="member-pic" src="images/member-3.jpg" alt="new member photo">
-        
-        <div class="recent-text">
-          <p>Dawn Wood commented on <strong>Facebook's Changes for 2021</strong></p>
-          <p>5 hours ago</p>
+
+        <div class="recent-info">
+          <img class="member-pic" src="images/member-3.jpg" alt="new member photo">
+          
+          <div class="recent-text">
+            <p>Dawn Wood commented on <strong>Facebook's Changes for 2021</strong></p>
+            <p>5 hours ago</p>
+          </div>
         </div>
+
+        <p class="arrow">&gt;</p>
       
       </div>
 
       <div class="recent-post">
-        <img class="member-pic" src="images/member-4.jpg" alt="new member photo">
-        
-        <div class="recent-text">
-          <p>Dan Oliver posted <strong>WebApp's SEO Tips</strong></p>
-          <p>1 day ago</p>
+
+        <div class="recent-info">
+          <img class="member-pic" src="images/member-4.jpg" alt="new member photo">
+          
+          <div class="recent-text">
+            <p>Dan Oliver posted <strong>WebApp's SEO Tips</strong></p>
+            <p>1 day ago</p>
+          </div>
         </div>
+
+        <p class="arrow">&gt;</p>
       
       </div>
 
@@ -303,7 +339,8 @@
       </div>
 
       <form>
-        <input type="text" id="text" name="user_text" placeholder="Search for User">
+        <input type="text" id="text" name="user_text" placeholder="Search for User" onkeyup="getName(this.value)">
+        <div class="auto-result"></div>
         <textarea id="textarea" name="user_message" placeholder="Message for User"></textarea>
         <button id="send">SEND</button>
       </form>
@@ -345,12 +382,13 @@
       <div class="timezone">
         <select name="timezone">
           <option value="" disabled selected>Select Timezone</option>
-          <option value="est">Eastern Standard Time</option>
-          <option value="cst">Central Standard Time</option>
-          <option value="mst">Mountain Standard Time</option>
-          <option value="pst">Pacific Standard Time</option>
-          <option value="akst">Alaska Standard Time</option>
-          <option value="hst">Hawaiian Standard Time</option>
+          <option value="est">Eastern Standard Time (UTC-05:00)</option>
+          <option value="cst">Central Standard Time (UTC-06:00)</option>
+          <option value="mst">Mountain Standard Time (UTC-06:00)</option>
+          <option value="pst">Pacific Standard Time (UTC-07:00)</option>
+          <option value="pst">Pacific Standard Time (UTC-08:00)</option>
+          <option value="akst">Alaska Standard Time (UTC-09:00)</option>
+          <option value="hst">Hawaiian Standard Time (UTC-10:00)</option>
         </select>
       </div>
 
