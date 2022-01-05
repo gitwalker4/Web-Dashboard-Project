@@ -209,18 +209,46 @@ send.addEventListener('click', () => {
   } else if ( message.value === '' ){
     window.alert('Please make sure to fill out the message field.');
   } else {
-    window.alert(`Your message has been successfully sent to ${user.value}`);
+    window.alert(`Your message has been successfully sent to ${user.value}.`);
   }
 });
 
-// Autocomplete function
-const nameList = [
-  'Victoria Chambers',
-  'Dale Byrd',
-  'Dawn Wood',
-  'Dan Oliver',
-  'Pat Riley',
-  'Cooper Kupp',
-  'Travis Kelce'
-]
+// Local Storage
+const email = document.querySelector('#email');
+const public = document.querySelector('#public');
+const timezone = document.querySelector('.timezone')
+const save = document.querySelector('.save');
+const cancel = document.querySelector('.cancel');
 
+function recallStorage() {
+  if ( localStorage.email === "true" ) {
+    email.checked = true;
+  } else {
+    email.checked = false;
+  }
+  if ( localStorage.public === "true" ) {
+    public.checked = true;
+  } else {
+    public.checked = false;
+  }
+  if ( localStorage.timezone ) {
+    timezone.value = localStorage.timezone;
+  }
+};
+
+recallStorage();
+
+save.addEventListener('click', () => {
+  localStorage.setItem("email", email.checked);
+  localStorage.setItem("public", public.checked);
+  localStorage.setItem("timezone", timezone.value);
+});
+
+cancel.addEventListener('click', () => {
+  localStorage.removeItem("email");
+  localStorage.removeItem("public");
+  localStorage.removeItem("timezone");
+  email.checked = null;
+  public.checked = null;
+  timezone.value = "";
+});

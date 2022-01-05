@@ -339,8 +339,16 @@
       </div>
 
       <form>
-        <input type="text" id="text" name="user_text" placeholder="Search for User" onkeyup="getName(this.value)">
-        <div class="auto-result"></div>
+        <datalist id="name-data">
+          <option>Victoria Chambers</option>
+          <option>Dale Byrd</option>
+          <option>Dawn Wood</option>
+          <option>Dan Oliver</option>
+          <option>Pat Riley</option>
+          <option>Cooper Kupp</option>
+          <option>Travis Kelce</option>
+        </datalist>
+        <input type="text" list="name-data" id="text" name="user_text" placeholder="Search for User" size="7" autocomplete="off">
         <textarea id="textarea" name="user_message" placeholder="Message for User"></textarea>
         <button id="send">SEND</button>
       </form>
@@ -379,8 +387,8 @@
         </label>
       </div>
 
-      <div class="timezone">
-        <select name="timezone">
+      <div>
+        <select name="timezone" class="timezone">
           <option value="" disabled selected>Select Timezone</option>
           <option value="est">Eastern Standard Time (UTC-05:00)</option>
           <option value="cst">Central Standard Time (UTC-06:00)</option>
@@ -402,6 +410,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
   <script src="app.js"></script>
 
 </body>
